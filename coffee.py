@@ -1,3 +1,4 @@
+import time
 import random
 
 
@@ -25,7 +26,12 @@ class Coffee():
 
         for i in range(4):
             print("두구두구...")
-
+            print("3")
+            time.sleep(1)
+            print("2")
+            time.sleep(1)
+            print("1")
+            
         print()
         print("커피 당첨자는...")
         print()
