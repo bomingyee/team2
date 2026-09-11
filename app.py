@@ -1,16 +1,16 @@
-from line import Line
-from station import Station
-from contents import Contents
+from lunchmenu import LunchMenu
+from history import History
+from coffee import Coffee
 
 class App:
     def __init__(self):
-        self.line = Line()
-        self.station = Station()
-        self.contents = Contents()
+        self.lunchmenu = LunchMenu()
+        self.history = History()
+        self.coffee = Coffee()
 
     def select_menu(self):
         print()
-        print("1. 노선 보기 2. 노선 검색 3. 즐겨찾는 역 등록 4. 종료")
+        print("1. 점메추 2. 점메추 이력 3. 커피내기 4. 종료")
         return input("메뉴를 선택해 주세요: ")
 
     def run(self):
@@ -18,14 +18,14 @@ class App:
             # 메뉴 선택
             menu = self.select_menu()
             if menu == "1":
-                self.line.search()
+                # 점메추
+                self.lunchmenu.run()
             elif menu == "2":
-                # 노선 검색
-                # 역명을 입력하면 몇호선인지 알려줍니다.
-                self.station.search()
+                # 점메추 이력
+                self.history.run()
             elif menu == "3":
-                # 지하철에서 보기 좋은 컨텐츠
-                self.contents.search()
+                # 커피내기
+                self.coffee.run()
             elif menu == "4":
                 print()
                 print("프로그램을 종료합니다.")
