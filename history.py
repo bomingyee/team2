@@ -77,7 +77,7 @@ class History:
         return record
 
     def show(self):
-        print("===== 점심이력 =====")
+        print("===== 점심 이력 =====")
         if len(self.history) == 0:
             print("저장된 이력이 없습니다.")
             print("총 소비 비용: 0원")
