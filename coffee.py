@@ -7,8 +7,7 @@ class Coffee():
         pass
 
     def run(self):
-        print()
-        print("===== 커피내기 =====")
+        print("\n===== 커피내기 =====")
 
         people = []
 

@@ -1,16 +1,18 @@
 from lunchmenu import LunchMenu
 from history import History
 from coffee import Coffee
+from calories import Calories
 
 class App:
     def __init__(self):
         self.lunchmenu = LunchMenu()
         self.history = History()
         self.coffee = Coffee()
+        self.calories = Calories()
 
     def select_menu(self):
         print()
-        print("1. 점메추 2. 이력 3. 커피내기 0. 종료")
+        print("1. 점메추 2. 이력 3. 커피내기 4. AI 칼로리 계산기 0. 종료")
         return input("메뉴를 선택해 주세요: ")
 
     def run(self):
@@ -26,6 +28,9 @@ class App:
             elif menu == "3":
                 # 커피내기
                 self.coffee.run()
+            elif menu == "4":
+                # AI 칼로리 계산기
+                self.calories.run()
             elif menu == "0":
                 print()
                 print("프로그램을 종료합니다.")
