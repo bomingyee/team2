@@ -12,7 +12,7 @@ class LunchMenu():
 
     def run(self):
         while True:
-            print("\n== 메뉴 종류 선택 ==")
+            print("\n===== 메뉴 종류 선택 ======")
             print("1. 한식")
             print("2. 중식")
             print("3. 일식")
@@ -49,10 +49,3 @@ class LunchMenu():
 
             else:
                 print("잘못된 번호입니다. 다시 선택해주세요.")
-
-
-# LunchMenu 객체 생성
-lunch_menu = LunchMenu()
-
-# 프로그램 실행
-lunch_menu.run()

@@ -8,16 +8,14 @@ class Coffee():
 
     def run(self):
         print()
-        print("===================")
         print("===== 커피내기 =====")
-        print("===================")
 
         people = []
 
-        count = int(input("참여 인원 수 : "))
+        count = int(input("참여 인원 수: "))
 
         for i in range(count):
-            name = input(str(i + 1) + "번 : ")
+            name = input(str(i + 1) + "번: ")
             people.append(name)
 
         winner = random.choice(people)

@@ -3,9 +3,9 @@ class History():
         self.history = []
 
     def add_history(self):
-        print("===== 이력 기록 =====")
-        menu = input("메뉴 : ")
-        price = int(input("가격 : "))
+        print("\n===== 이력 기록 =====")
+        menu = input("메뉴: ")
+        price = int(input("가격: "))
 
         self.history.append({"menu":menu, "price":price})
         
