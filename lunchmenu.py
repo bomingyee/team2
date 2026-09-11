@@ -1,6 +1,6 @@
-class Line():
+class LunchMenu():
     def __init__(self):
         pass
 
-    def search(self):
+    def run(self):
         pass

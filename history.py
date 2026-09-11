@@ -1,6 +1,6 @@
-class Station():
+class History():
     def __init__(self):
         pass
 
-    def search(self):
+    def run(self):
         pass
