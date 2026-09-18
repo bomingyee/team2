@@ -36,7 +36,7 @@ def save_data(user_info, order_info):
 
     user_result = (
         supabase
-        .schema("cafe_project")
+        .schema("starbucks")
         .table("users")
         .insert(user_data)
         .select("user_id")
@@ -58,7 +58,7 @@ def save_data(user_info, order_info):
 
     order_result = (
         supabase
-        .schema("cafe_project")
+        .schema("starbucks")
         .table("orders")
         .insert(order_data)
         .select("order_id")
@@ -79,14 +79,11 @@ def save_data(user_info, order_info):
         "menu_price": order_info[4]
     }
 
-    item_result = (
+    (
         supabase
-        .schema("cafe_project")
+        .schema("starbucks")
         .table("order_items")
         .insert(item_data)
         .execute()
     )
 
-
-
-    return [user_id, order_id]
