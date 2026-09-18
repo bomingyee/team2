@@ -26,7 +26,7 @@ class DB():
 
         # 1. users 테이블 적재
         user_data = {
-            "username": user_info[1],
+            "user_name": user_info[1],
             "gender": user_info[2],
             "age": user_info[3]
         }

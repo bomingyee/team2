@@ -38,7 +38,7 @@ class Order():
         selected_menu = self.menus[menu_id]
         price = selected_menu["menu_price"]
         total_price = price * quantity
-        order_time = datetime.now()
+        order_time = datetime.now().isoformat()
 
         print()
         print(
