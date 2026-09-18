@@ -1,18 +1,14 @@
-from lunchmenu import LunchMenu
-from history import History
-from coffee import Coffee
-from calories import Calories
+from user import User
+from order import Order
 
 class App:
     def __init__(self):
-        self.lunchmenu = LunchMenu()
-        self.history = History()
-        self.coffee = Coffee()
-        self.calories = Calories()
+        self.user = User()
+        self.order = Order()
 
     def select_menu(self):
         print()
-        print("1. 점메추 2. 이력 3. 커피내기 4. AI 칼로리 계산기 0. 종료")
+        print("1. 회원 정보 수정 2. 주문하기 0. 종료하기")
         return input("메뉴를 선택해 주세요: ")
 
     def run(self):
@@ -20,18 +16,13 @@ class App:
             # 메뉴 선택
             menu = self.select_menu()
             if menu == "1":
-                # 점메추
-                self.lunchmenu.run()
+                # 회원 정보 수정
+                self.user.get_user_info()
             elif menu == "2":
-                # 이력
-                self.history.add_history()
-            elif menu == "3":
-                # 커피내기
-                self.coffee.run()
-            elif menu == "4":
-                # AI 칼로리 계산기
-                self.calories.run()
+                # 주문하기
+                self.order.order_drink()
             elif menu == "0":
+                # 종료하기
                 print()
                 print("프로그램을 종료합니다.")
                 break
