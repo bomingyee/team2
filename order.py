@@ -1,3 +1,6 @@
+from datetime import datetime
+
+
 class Order():
     def __init__(self):
         self.menus = {
@@ -6,7 +9,7 @@ class Order():
             "3": {"menu_name": "콜드브루", "menu_price": 5500}
         }
 
-    def order_drink(self):
+    def order_drink(self, user_id):
         print()
         print("===== 메뉴 =====")
 
@@ -26,11 +29,21 @@ class Order():
         quantity = int(input("수량을 입력해주세요: "))
 
         selected_menu = self.menus[menu_id]
-        total_price = selected_menu["menu_price"] * quantity
+        price = selected_menu["menu_price"]
+        total_price = price * quantity
+        order_time = datetime.now()
 
         print()
         print(
             f"{selected_menu['menu_name']} "
-            f"{quantity}잔 주문되었습니다."
+            f"{quantity}개 주문되었습니다."
         )
         print(f"총 금액은 {total_price}원입니다.")
+
+        return [
+            user_id,
+            order_time,
+            int(menu_id),
+            quantity,
+            price
+        ]
