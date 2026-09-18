@@ -10,78 +10,69 @@ key = os.environ["SUPABASE_KEY"]
 
 supabase: Client = create_client(url, key)
 
-# 전체 데이터 적재
 
+class DB():
+    def __init__(self):
+        pass
+    
+    # 전체 데이터 적재
+    def save_data(self, user_info, order_info):
 
-def save_data(user_info, order_info):
+        # user_info
+        # [user_id, user_name, gender, age]
 
-    # user_info
-    # [user_id, user_name, gender, age]
+        # order_info
+        # [user_id, order_time, menu_id, quantity, price]
 
-    # order_info
-    # [user_id, order_time, menu_id, quantity, price]
+        # 1. users 테이블 적재
+        user_data = {
+            "username": user_info[1],
+            "gender": user_info[2],
+            "age": user_info[3]
+        }
 
+        user_result = (
+            supabase
+            .schema("starbucks")
+            .table("users")
+            .insert(user_data)
+            .select("user_id")
+            .execute()
+        )
 
+        # DB에서 자동 생성된 user_id
+        user_id = user_result.data[0]["user_id"]
 
-    # 1. users 테이블 적재
+        # 2. orders 테이블 적재
+        order_data = {
+            "user_id": user_id,
+            "order_time": order_info[1]
+        }
 
+        order_result = (
+            supabase
+            .schema("starbucks")
+            .table("orders")
+            .insert(order_data)
+            .select("order_id")
+            .execute()
+        )
 
-    user_data = {
-        "username": user_info[1],
-        "gender": user_info[2],
-        "age": user_info[3]
-    }
+        # DB에서 자동 생성된 order_id
+        order_id = order_result.data[0]["order_id"]
 
-    user_result = (
-        supabase
-        .schema("starbucks")
-        .table("users")
-        .insert(user_data)
-        .select("user_id")
-        .execute()
-    )
+        # 3. order_items 테이블 적재
+        item_data = {
+            "order_id": order_id,
+            "menu_id": order_info[2],
+            "quantity": order_info[3],
+            "menu_price": order_info[4]
+        }
 
-    # DB에서 자동 생성된 user_id
-    user_id = user_result.data[0]["user_id"]
-
-
-
-    # 2. orders 테이블 적재
-
-
-    order_data = {
-        "user_id": user_id,
-        "order_time": order_info[1]
-    }
-
-    order_result = (
-        supabase
-        .schema("starbucks")
-        .table("orders")
-        .insert(order_data)
-        .select("order_id")
-        .execute()
-    )
-
-    # DB에서 자동 생성된 order_id
-    order_id = order_result.data[0]["order_id"]
-
-
-    # 3. order_items 테이블 적재
-
-
-    item_data = {
-        "order_id": order_id,
-        "menu_id": order_info[2],
-        "quantity": order_info[3],
-        "menu_price": order_info[4]
-    }
-
-    (
-        supabase
-        .schema("starbucks")
-        .table("order_items")
-        .insert(item_data)
-        .execute()
-    )
-
+        (
+            supabase
+            .schema("starbucks")
+            .table("order_items")
+            .insert(item_data)
+            .execute()
+        )

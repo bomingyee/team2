@@ -26,7 +26,8 @@ class App:
                 self.user_id = self.user_data[0]
             elif menu == "2":
                 # 주문하기
-                self.order_data = self.order.order_drink(self.user_id)
+                self.order_data = self.order.order_menu(self.user_id)
+                self.db.save_data(self.user_data, self.order_data) # 고객 정보와 주문 정보를 데이터베이스에 적재
             elif menu == "0":
                 # 종료하기
                 print()

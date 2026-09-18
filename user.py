@@ -10,10 +10,10 @@ class User():
 
         print("\n고객 정보를 입력합니다.")
 
-        self.user_name = input("이름을 기재해주세요 : ")
+        self.user_name = input("이름을 기재해주세요: ")
         
         while True:
-            self.gender = input("성별을 입력해주세요(남성 혹은 여성으로 입력) : ")
+            self.gender = input("성별을 입력해주세요(남성 혹은 여성으로 입력): ")
             if self.gender in ["남성", "여성"]:
                 break  # 올바르게 입력했으므로 while문 탈출
             else:
@@ -23,7 +23,7 @@ class User():
         self.valid_ages = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
         while True:
             try:
-                self.age = int(input("나이대를 입력해주세요(10, 20, 30, 40, 50, 60, 70, 80, 90, 100) : "))
+                self.age = int(input("나이대를 입력해주세요(10, 20, 30, 40, 50, 60, 70, 80, 90, 100): "))
                 
                 # 입력한 숫자가 보기(10~100)에 있는지 확인
                 if self.age in self.valid_ages:
@@ -40,7 +40,3 @@ class User():
         self.users = [self.user_id , self.user_name, self.gender , self.age ] 
         
         return self.users
-
-a= User()
-b= a.get_user_info()
-print(b)

@@ -16,7 +16,7 @@ class Order():
             "9": {"menu_name": "클래식 피낭시에", "menu_price": 3500}
         }
 
-    def order_drink(self, user_id):
+    def order_menu(self, user_id):
         print()
         print("===== 메뉴 =====")
 
